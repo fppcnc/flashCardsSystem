@@ -3,14 +3,21 @@ $choice = $_REQUEST['choice'] ?? 'toWelcome';
 echo '<pre>';
 print_r($_REQUEST);
 echo '</pre>';
+
 //access toWelcome.php
-$choice = null;
 switch ($choice) {
-    case 'toWelcome':
-        $page = $choice;
+    case 'toLogin':
+        $page = 'toLogin';
+        break;
+    case 'toSignUp';
+        $page = 'toSignUp';
+        break;
+    case 'toResetPasswd':
+        $page = 'toResetPasswd';
+        break;
     default :
-$page = 'toWelcome';
+        $page = $choice;
+        break;
 }
 
 include 'pages/' . $page . '.php';
-http://localhost:63342/flashCardsSystem/pages/toWelcome.php

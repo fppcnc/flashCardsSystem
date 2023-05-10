@@ -8,15 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post">
-    <a href="index.php?choice=toLogin">
-<button>
+<nav>
+
+    <a href='index.php?choice=toLogin'>
+<button type="button">
     Login
 </button>
     </a>
-<button>
+    <a href='index.php?choice=toSignUp'>
+<button type="button">
     Sign Up
 </button>
-</form>
+    </a>
+<div>
+    <a href="index.php?choice=toResetPasswd">
+        Forgot your password?
+    </a><br>
+    It happens to the best of us
+</div>
+</nav>
 </body>
-</html><?php
+</html>
