@@ -8,6 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-Login Page
+<form method="post">
+    <a href="index.php?choice=toLogin">
+<button>
+    Login
+</button>
+    </a>
+<button>
+    Sign Up
+</button>
+</form>
 </body>
 </html><?php
