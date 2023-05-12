@@ -34,7 +34,6 @@ switch ($choice) {
         //if password fields match, we store in database
         if ($password === $confirmPassword) {
             (new Student())->registerNewStudent($firstName, $lastName, $password);
-            echo 'Welcome ' . $firstName . ' ' . $lastName . '!<br>';
             $_SESSION['password_error'] = '';
             $page = "toWelcome";
             // if password fields don´t match, send back

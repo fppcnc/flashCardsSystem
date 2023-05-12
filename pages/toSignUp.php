@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SignUp</title>
+    <title>SignUp page</title>
     <?php include 'includecss.php'; ?>
 
 </head>
@@ -14,6 +14,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
+
             <form class="login100-form validate-form" method="post" action="index.php">
                 <input type="hidden" name="choice" value="register">
                 <span class="login100-form-title p-b-43">

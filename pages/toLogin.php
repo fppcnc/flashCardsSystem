@@ -9,5 +9,11 @@
 </head>
 <body>
 Login Page
+<div>
+    <a href="index.php?choice=toResetPasswd">
+        Forgot your password?
+    </a><br>
+    It happens to the best of us
+</div>
 </body>
 </html><?php

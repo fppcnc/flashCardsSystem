@@ -463,8 +463,8 @@ input.input100 {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  /*justify-content: space-between*/
+  /*justify-content: center;*/
+  justify-content: space-between
 }
 
 .login100-form-btn {
@@ -521,6 +521,7 @@ input.input100 {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+
 }
 .login100-form-btn-half.right {
   display: -webkit-box;
@@ -557,6 +558,13 @@ input.input100 {
   background: #333333;
 }
 
+.left {
+  order: 1;
+}
+
+.right {
+  order: 2;
+}
 
 
 /*------------------------------------------------------------------
