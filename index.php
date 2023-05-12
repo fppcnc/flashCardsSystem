@@ -5,16 +5,15 @@ include 'config.php';
 
 $choice = $_REQUEST['choice'] ?? 'toWelcome';
 
-//get data from login page
+//get data from signup page
 $firstName = $_POST['firstName'] ?? '';
 $lastName = $_POST['lastName'] ?? '';
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 $confirmPassword = $_POST['confirmPassword'] ?? '';
-$err = 0;
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_POST);
+//echo '</pre>';
 
 //access toWelcome.php
 switch ($choice) {
@@ -33,12 +32,11 @@ switch ($choice) {
         if ($password === $confirmPassword) {
             (new Student())->registerNewStudent($firstName, $lastName, $password);
             echo 'Welcome ' . $firstName . ' ' . $lastName . '!<br>';
-            echo 'You can now LogIn';
-
+            $_SESSION['password_error'] = '';
             $page = "toWelcome";
             // if password fields don´t match, send back
         } else {
-            $err = 1;
+            $_SESSION['password_error'] = "Given Passwords don't match";
             $page = 'toSignUp';
         }
         break;
@@ -46,5 +44,4 @@ switch ($choice) {
         $page = $choice;
         break;
 }
-
 include 'pages/' . $page . '.php';
