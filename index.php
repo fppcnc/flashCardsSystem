@@ -18,7 +18,10 @@ $confirmPassword = $_POST['confirmPassword'] ?? '';
 //access toWelcome.php
 switch ($choice) {
     //connected to pages
-    case 'toLogin':
+    case 'toWelcome':
+        $page = 'toWelcome';
+        break;
+        case 'toLogin':
         $page = 'toLogin';
         break;
     case 'toSignUp';

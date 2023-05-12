@@ -15,11 +15,11 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <form class="login100-form validate-form" method="post" action="index.php">
-                        <input type="hidden" name="choice" value="register">
+                <input type="hidden" name="choice" value="register">
                 <span class="login100-form-title p-b-43">
                         Sign Up <br>
 					</span>
-                <?php if(!empty($_SESSION['password_error'])) { ?>
+                <?php if (!empty($_SESSION['password_error'])) { ?>
                     <div class="alert alert-danger login100">
                         <?php echo $_SESSION['password_error']; ?>
                     </div>
@@ -56,15 +56,15 @@
                         Submit
                     </button>
                 </div>
-<br>
+                <br>
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn-half left" type="reset">
                         Reset
                     </button>
-
-                        <button class="login100-form-btn-half right" type="button" >
+                    <button class="button-link login100-form-btn-half right" type="button" onclick="window.location.href='index.php?choice=toWelcome';">
                             Back
                         </button>
+
 
                 </div>
             </form>
