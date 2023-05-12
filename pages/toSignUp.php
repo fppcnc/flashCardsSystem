@@ -58,9 +58,14 @@
                 </div>
 <br>
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" type="reset">
+                    <button class="login100-form-btn-half left" type="reset">
                         Reset
                     </button>
+
+                        <button class="login100-form-btn-half right" type="button" >
+                            Back
+                        </button>
+
                 </div>
             </form>
             <div class="login100-more" style="background-image: url('css/images/doll.jpg');">

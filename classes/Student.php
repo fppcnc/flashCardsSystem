@@ -69,7 +69,7 @@ class Student
     public function registerNewStudent(string $firstName, string $lastName, string $password): Student
     {
         $dbh = new PDO (DB_DNS, DB_USER, DB_PASSWD);
-        $sql = "INSERT INTO students (id, firstName, lastName, password, registrationTime) VALUES (NULL, :firstName, :lastName, :password, :registrationTime)";
+        $sql = "INSERT INTO student (id, firstName, lastName, password, registrationTime) VALUES (NULL, :firstName, :lastName, :password, :registrationTime)";
         $stmt = $dbh->prepare($sql);
         $password = password_hash($password, PASSWORD_DEFAULT);
         $registrationTime = date("Y-m-d H:i:s");
