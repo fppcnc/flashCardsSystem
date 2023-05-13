@@ -19,21 +19,13 @@
                 <span class="login100-form-title p-b-43">
                         Login<br>
 					</span>
-<!--                --><?php //if (!empty($_SESSION['password_error'])) { ?>
-<!--                    <span class="login100-form-title-sub-smallertext p-b-10">-->
-<!--                    <div class="alert alert-danger login100">-->
-<!--                        --><?php //echo $_SESSION['password_error']; ?>
-<!--                    </div>-->
-<!--                    </span>-->
-<!--                --><?php //} elseif (!empty($_SESSION['email_error'])) { ?>
-<!--                    <span class="login100-form-title-sub-smallertext p-b-10">-->
-<!--                    <div class="alert alert-danger login100">-->
-<!--                        --><?php //echo $_SESSION['email_error']; ?>
-<!--                    </div>-->
-<!--                    </span>-->
-<!--                --><?php //} ?>
-
-<!--                </div>-->
+                <?php if (!empty($_SESSION['error'])) { ?>
+                    <span class="login100-form-title-sub-smallertext p-b-10">
+                    <div class="alert alert-danger login100">
+                        <?php echo $_SESSION['error']; ?>
+                    </div>
+                    </span>
+                <?php } ?>
                 <div class="wrap-input100 validate-input" data-validate="Email is required">
                     <input class="input100" type="email" name="email">
                     <span class="focus-input100"></span>
@@ -55,7 +47,8 @@
                     <button class="login100-form-btn-half left" type="reset">
                         Reset
                     </button>
-                    <button class="button-link login100-form-btn-half right" type="button" onclick="window.location.href='index.php?choice=toWelcome';">
+                    <button class="button-link login100-form-btn-half right" type="button"
+                            onclick="window.location.href='index.php?choice=toHome';">
                         Back
                     </button>
 

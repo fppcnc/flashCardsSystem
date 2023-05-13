@@ -21,7 +21,7 @@ switch ($choice) {
     case 'toHome':
         $page = 'toHome';
         break;
-        case 'toLogin':
+    case 'toLogin':
         $page = 'toLogin';
         break;
     case 'toSignUp';
@@ -33,26 +33,35 @@ switch ($choice) {
     case 'register':
         //if password fields match, we store in database
         if ($password === $confirmPassword) {
-            $checkEmail = (new Student())->checkForDoubleEmail($email);
-            // if method checkForDoubleEmail return false, aka no identical email on database
+            // check if email already exists in Db
+            $checkEmail = (new Student())->checkForEmail($email);
+            // if method checkForDoubleEmail returns false, aka no identical email on database,
             // then go on with registration
             if ($checkEmail === false) {
-                $_SESSION['email_error'] = '';
+                $_SESSION['error'] = '';
                 (new Student())->registerNewStudent($firstName, $lastName, $email, $password);
-                $_SESSION['password_error'] = '';
+                $_SESSION['error'] = '';
                 $page = "toHome";
             } else {
-                $_SESSION['email_error'] = 'This email is associated to another Student';
+                $_SESSION['error'] = 'This email is associated to another Student';
                 $page = 'toSignUp';
             }
             // if password fields don´t match, send back
         } else {
-            $_SESSION['password_error'] = "Given Passwords don't match";
+            $_SESSION['error'] = "Given Passwords don´t match";
             $page = 'toSignUp';
         }
         break;
     case 'login':
-        $page = 'toWelcome';
+        //grant access to next page if email and password match data in Db
+        $log = (new Student())->grantAccess($email, $password);
+        if ($log === false) {
+            $page = 'toLogin';
+            $_SESSION['error'] = "Email and Password dont´t match";
+        } else {
+            $_SESSION['error'] = '';
+            $page = 'toWelcome';
+        }
         break;
     default :
         $page = $choice;

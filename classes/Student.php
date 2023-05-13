@@ -10,11 +10,12 @@ class Student
     private string $registrationTime;
 
     /**
-     * @param int $id
-     * @param string $firstName
-     * @param string $lastName
-     * @param string $password
-     * @param string $registrationTime
+     * @param int|null $id
+     * @param string|null $firstName
+     * @param string|null $lastName
+     * @param string|null $email
+     * @param string|null $password
+     * @param string|null $registrationTime
      */
     public function __construct(int|null $id = null, string|null $firstName = null, string|null $lastName = null, string|null $email = null, string|null $password = null, string|null $registrationTime = null)
     {
@@ -55,7 +56,7 @@ class Student
     /**
      * @return string
      */
-    public function getemail(): string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -76,6 +77,13 @@ class Student
         return $this->registrationTime;
     }
 
+    /**
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $email
+     * @param string $password
+     * @return Student
+     */
     public function registerNewStudent(string $firstName, string $lastName, string $email, string $password): Student
     {
         $dbh = new PDO (DB_DNS, DB_USER, DB_PASSWD);
@@ -94,7 +102,11 @@ class Student
         return new Student($id, $firstName, $lastName, $email, $password, $registrationTime);
     }
 
-    public function checkForDoubleEmail($email): bool
+    /**
+     * @param $email
+     * @return bool
+     */
+    public function checkForEmail(string $email): bool
     {
         $dbh = new PDO (DB_DNS, DB_USER, DB_PASSWD);
 
@@ -103,13 +115,41 @@ class Student
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $result = $stmt->fetchObject('Student');
+        // fetchObject returns, as an Object, the query stored in $stmt
 
         if ($result) {
-            // Email already exists, return error message
+            // if something is returned, then data is retrieved
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * @param $email
+     * @return void
+     */
+    public function grantAccess(string $email, string $password): bool
+    {
+        // check if email exists in Db
+        $dbh = new PDO (DB_DNS, DB_USER, DB_PASSWD);
+        $this->email = $email;
+        $checkEmail = (new Student())->checkForEmail($email);
+        // if check forForEmail finds something, then stores it in $checkEmail
+        if ($checkEmail === true) {
+            // search if input passwd matches the one associated to email in Db
+            $sql = "SELECT password FROM student WHERE email =:email";
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            $hash_password = $stmt->fetch();
+            $this->password = $password;
+            $validity = password_verify($password, $hash_password['password']);
+        } else {
+            $validity = false;
+        }
+        return $validity;
     }
 }
