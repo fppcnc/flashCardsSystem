@@ -3,7 +3,7 @@
 include 'classes/Student.php';
 include 'config.php';
 
-$choice = $_REQUEST['choice'] ?? 'toWelcome';
+$choice = $_REQUEST['choice'] ?? 'toHome';
 
 //get data from signup page
 $firstName = $_POST['firstName'] ?? '';
@@ -15,11 +15,11 @@ $confirmPassword = $_POST['confirmPassword'] ?? '';
 //print_r($_POST);
 //echo '</pre>';
 
-//access toWelcome.php
+//access toHome.php
 switch ($choice) {
     //connected to pages
-    case 'toWelcome':
-        $page = 'toWelcome';
+    case 'toHome':
+        $page = 'toHome';
         break;
         case 'toLogin':
         $page = 'toLogin';
@@ -40,7 +40,7 @@ switch ($choice) {
                 $_SESSION['email_error'] = '';
                 (new Student())->registerNewStudent($firstName, $lastName, $email, $password);
                 $_SESSION['password_error'] = '';
-                $page = "toWelcome";
+                $page = "toHome";
             } else {
                 $_SESSION['email_error'] = 'This email is associated to another Student';
                 $page = 'toSignUp';
@@ -50,6 +50,9 @@ switch ($choice) {
             $_SESSION['password_error'] = "Given Passwords don't match";
             $page = 'toSignUp';
         }
+        break;
+    case 'login':
+        $page = 'toWelcome';
         break;
     default :
         $page = $choice;
