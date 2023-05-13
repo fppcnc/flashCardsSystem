@@ -33,9 +33,18 @@ switch ($choice) {
     case 'register':
         //if password fields match, we store in database
         if ($password === $confirmPassword) {
-            (new Student())->registerNewStudent($firstName, $lastName, $email, $password);
-            $_SESSION['password_error'] = '';
-            $page = "toWelcome";
+            $checkEmail = (new Student())->checkForDoubleEmail($email);
+            // if method checkForDoubleEmail return false, aka no identical email on database
+            // then go on with registration
+            if ($checkEmail === false) {
+                $_SESSION['email_error'] = '';
+                (new Student())->registerNewStudent($firstName, $lastName, $email, $password);
+                $_SESSION['password_error'] = '';
+                $page = "toWelcome";
+            } else {
+                $_SESSION['email_error'] = 'This email is associated to another Student';
+                $page = 'toSignUp';
+            }
             // if password fields don´t match, send back
         } else {
             $_SESSION['password_error'] = "Given Passwords don't match";

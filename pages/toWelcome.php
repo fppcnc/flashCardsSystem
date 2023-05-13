@@ -14,7 +14,7 @@
         <div class="wrap-login100">
             <form class="login100-form validate-form">
                 <input type="hidden" name="choice" value="register">
-                <span class="login100-form-title p-b-40">
+                <span class="login100-form-title p-b-43">
                         Welcome<?php if (isset($_POST['firstName']) && isset($_POST['lastName'])) { echo '<br>' . $firstName . ' ' . $lastName;?>
                 </span>
                 <span class="login100-form-title-sub p-b-20">

@@ -91,7 +91,25 @@ class Student
         $stmt->execute();
         $id = $dbh->lastInsertId();
         $dbh = null;
-        return new Student($id, $firstName, $lastName, $password, $registrationTime);
+        return new Student($id, $firstName, $lastName, $email, $password, $registrationTime);
     }
 
+    public function checkForDoubleEmail($email): bool
+    {
+        $dbh = new PDO (DB_DNS, DB_USER, DB_PASSWD);
+
+        // Check if email already exists in database
+        $sql = "SELECT id FROM student WHERE email = :email";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            // Email already exists, return error message
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

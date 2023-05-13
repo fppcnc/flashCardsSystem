@@ -21,9 +21,17 @@
                         Sign Up <br>
 					</span>
                 <?php if (!empty($_SESSION['password_error'])) { ?>
+                    <span class="login100-form-title-sub-smallertext p-b-10">
                     <div class="alert alert-danger login100">
                         <?php echo $_SESSION['password_error']; ?>
                     </div>
+                    </span>
+                <?php } elseif (!empty($_SESSION['email_error'])) { ?>
+                    <span class="login100-form-title-sub-smallertext p-b-10">
+                    <div class="alert alert-danger login100">
+                        <?php echo $_SESSION['email_error']; ?>
+                    </div>
+                    </span>
                 <?php } ?>
 
                 <div class="wrap-input100 validate-input" data-validate="First Name is required">

@@ -19,4 +19,7 @@ In einer weiteren Tabelle soll ein Dozent sehen können, wieviel Prozent der Fra
 //i need a unique value to assign to each student e.g. a nickname or register with email
 
 //possible email system to develop. for now it's going to be just a key for access
+//email doesnt have to appear 2 times.
+
+//login page. 2 inputs: 'email' and 'password'. Double check with db for correct psw, method into class perhaps?
 
