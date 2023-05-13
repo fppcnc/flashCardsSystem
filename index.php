@@ -18,7 +18,10 @@ $confirmPassword = $_POST['confirmPassword'] ?? '';
 //access toWelcome.php
 switch ($choice) {
     //connected to pages
-    case 'toLogin':
+    case 'toWelcome':
+        $page = 'toWelcome';
+        break;
+        case 'toLogin':
         $page = 'toLogin';
         break;
     case 'toSignUp';
@@ -31,7 +34,6 @@ switch ($choice) {
         //if password fields match, we store in database
         if ($password === $confirmPassword) {
             (new Student())->registerNewStudent($firstName, $lastName, $password);
-            echo 'Welcome ' . $firstName . ' ' . $lastName . '!<br>';
             $_SESSION['password_error'] = '';
             $page = "toWelcome";
             // if password fields don´t match, send back
