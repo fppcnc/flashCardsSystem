@@ -33,7 +33,7 @@ switch ($choice) {
     case 'register':
         //if password fields match, we store in database
         if ($password === $confirmPassword) {
-            (new Student())->registerNewStudent($firstName, $lastName, $password);
+            (new Student())->registerNewStudent($firstName, $lastName, $email, $password);
             $_SESSION['password_error'] = '';
             $page = "toWelcome";
             // if password fields don´t match, send back

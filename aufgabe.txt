@@ -13,3 +13,10 @@ Jetzt kann er L. seine Antorten und die richtigen Lösungen sehen.
 In einer weiteren Tabelle soll ein Dozent sehen können, wieviel Prozent der Fragen der L. zu welchem Zeitpunkt richtig beantwortet hat.
 
 
+//welcome page and signup page. Register new students for the quiz. need class, methods and connection to db
+
+//name and surname might not be enough for login. What happens if 2 students have same namem, surname and pass?
+//i need a unique value to assign to each student e.g. a nickname or register with email
+
+//possible email system to develop. for now it's going to be just a key for access
+

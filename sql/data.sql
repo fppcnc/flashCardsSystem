@@ -10,6 +10,7 @@ CREATE TABLE student
     firstName  VARCHAR(45),
     lastName VARCHAR(45),
     password VARCHAR(255),
+    email VARCHAR(255),
     registrationTime DATE
 );
 

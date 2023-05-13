@@ -26,26 +26,26 @@
                     </div>
                 <?php } ?>
 
-
                 <div class="wrap-input100 validate-input" data-validate="First Name is required">
                     <input class="input100" type="text" name="firstName">
                     <span class="focus-input100"></span>
                     <span class="label-input100">First Name</span>
                 </div>
-
                 <div class="wrap-input100 validate-input" data-validate="Last Name is required">
                     <input class="input100" type="text" name="lastName">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Last Name</span>
                 </div>
-
-
+                <div class="wrap-input100 validate-input" data-validate="Email is required">
+                    <input class="input100" type="email" name="email">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Email</span>
+                </div>
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
                     <input class="input100" type="password" name="password">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Password</span>
                 </div>
-
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
                     <input class="input100" type="password" name="confirmPassword">
                     <span class="focus-input100"></span>

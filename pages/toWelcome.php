@@ -14,9 +14,13 @@
         <div class="wrap-login100">
             <form class="login100-form validate-form">
                 <input type="hidden" name="choice" value="register">
-                <span class="login100-form-title p-b-43">
-                        Welcome<?php if (isset($_POST['firstName']) && isset($_POST['lastName'])) { echo '<br>' . $firstName . ' ' . $lastName;}?>!
+                <span class="login100-form-title p-b-40">
+                        Welcome<?php if (isset($_POST['firstName']) && isset($_POST['lastName'])) { echo '<br>' . $firstName . ' ' . $lastName;?>
+                </span>
+                <span class="login100-form-title-sub p-b-20">
+                    You can now LogIn<?php } ?>!
 					</span>
+
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn" type="button" onclick="window.location.href='index.php?choice=toSignUp';">
                         Sign Up
